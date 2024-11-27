@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brignoli_Taramelli_Gioco", "Brignoli_Taramelli_Gioco\Brignoli_Taramelli_Gioco.csproj", "{8B38843A-E86D-47A8-838E-1703A46BEF5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{299EA611-5287-43B6-97DD-4793F66CC2F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B38843A-E86D-47A8-838E-1703A46BEF5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B38843A-E86D-47A8-838E-1703A46BEF5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B38843A-E86D-47A8-838E-1703A46BEF5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B38843A-E86D-47A8-838E-1703A46BEF5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{299EA611-5287-43B6-97DD-4793F66CC2F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{299EA611-5287-43B6-97DD-4793F66CC2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{299EA611-5287-43B6-97DD-4793F66CC2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{299EA611-5287-43B6-97DD-4793F66CC2F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0EF00A6E-BD00-4CAD-87E3-74B67D58FD0C}
+	EndGlobalSection
+EndGlobal
