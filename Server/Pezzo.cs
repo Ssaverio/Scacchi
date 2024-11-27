@@ -8,18 +8,20 @@ namespace Server
 {
     internal static class Pezzo
     {
-        public static int WKing = 100;
-        public static int WQueen = 9;
-        public static int WRook = 5;
-        public static int WBishop = 3;
-        public static int WKnight = 3;
-        public static int WPawn = 1; 
+        public static byte WKing = 12;
+        public static byte WQueen = 11;
+        public static byte WRook = 10;
+        public static byte WBishop = 9;
+        public static byte WKnight = 8;
+        public static byte WPawn = 7;
         
-        public static int BKing = -100;
-        public static int BQueen = -9;
-        public static int BRook = -5;
-        public static int BBishop = -3;
-        public static int BKnight = -3;
-        public static int BPawn = -1;
+        public static byte BKing = 6;
+        public static byte BQueen = 5;
+        public static byte BRook = 4;
+        public static byte BBishop = 3;
+        public static byte BKnight = 2;
+        public static byte BPawn = 1;
+
+        public static byte Vuoto = 0;
     }
 }
