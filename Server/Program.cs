@@ -21,12 +21,12 @@ namespace Server
         {
             Scacchiera.LoadFEN(startFen);
             Scacchiera.Dump();
+
             StartServer();
         }
 
         static void StartServer()
         {
-            //---listen at the specified IP and port no.---
             IPAddress localAdd = IPAddress.Parse(SERVER_IP);
             TcpListener listener = new TcpListener(localAdd, PORT_NO);
             Console.WriteLine($"Listening on port {PORT_NO}");
@@ -72,32 +72,18 @@ namespace Server
             {
                 while (true)
                 {
-                    if (currentClients != 2 && client.Connected)
-                    {
-                        byte[] mess = Encoding.UTF8.GetBytes("Non abbastanza giocatori!");
-                        nwStream.Write(mess, 0, mess.Length);
-                        Thread.Sleep(100);
-                        continue;
-                    }
-                    else
+                    if (currentClients == 2 && client.Connected)
                     {
                         SendToAllClients(Scacchiera.posizione);
-                    }
 
-                    byte[] buffer = new byte[4096];
-                    int bytesRead = nwStream.Read(buffer, 0, buffer.Length);
 
-                    string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                    Console.WriteLine("Received: " + message);
+                        byte[] buffer = new byte[64];
+                        int bytesRead = nwStream.Read(buffer, 0, buffer.Length);
 
-                    if (message == "exit")
-                    {
-                        byte[] exitMessage = Encoding.UTF8.GetBytes("Uscita...");
-                        Console.WriteLine("Uscita...");
-                        break;
-                    }
+                        string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                        Console.WriteLine("Received: " + message);
 
-                    SendToAllClients(Encoding.UTF8.GetBytes(message));
+                    } else Thread.Sleep(100);
                 }
             }
             catch (Exception ex)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,6 @@ namespace Server
                 ['R'] = Pezzo.WRook,
                 ['Q'] = Pezzo.WQueen,
             };
-
             int casella = 0;
 
             foreach (char c in fen.Split(' ')[0]) {

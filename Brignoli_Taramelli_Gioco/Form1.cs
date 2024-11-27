@@ -25,8 +25,6 @@ namespace Brignoli_Taramelli_Gioco
             InitializeComponent();
             GeneraScacchiera();
 
-
-
             client = new TcpClient(ADDRESS, PORT);
             stream = client.GetStream();
             new Thread(ReceiveMessages).Start();
@@ -50,10 +48,9 @@ namespace Brignoli_Taramelli_Gioco
             }
         }
 
-        // Metodo per ricevere i messaggi dal server
         private void ReceiveMessages()
         {
-            byte[] bytesToRead = new byte[4096];
+            byte[] bytesToRead = new byte[64];
 
             while (true)
             {
@@ -63,13 +60,8 @@ namespace Brignoli_Taramelli_Gioco
 
                     if (bytesRead > 0)
                     {
-                        
-                        string message = Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
-                        if (ChessBoardPanel.IsHandleCreated) {
-                            ChessBoardPanel.Invoke(new LoadPos(GeneraPosizione), bytesToRead);
-                        }
+                        if (ChessBoardPanel.IsHandleCreated) ChessBoardPanel.Invoke(new LoadPos(GeneraPosizione), bytesToRead);
                     }
-                    Thread.Sleep(100);
                 }
                 catch (Exception ex)
                 {
@@ -81,17 +73,14 @@ namespace Brignoli_Taramelli_Gioco
 
         private void GeneraPosizione(byte[] pos)
         {
-            int i = 0;
+            int i = 63;
             foreach (Control control in ChessBoardPanel.Controls)
             {
-                Label casella = control as Label;
-                TableLayoutPanelCellPosition index = ChessBoardPanel.GetPositionFromControl(control);
-
-                if (casella != null)
+                if (control is Label casella)
                 {
                     casella.Text = pos[i].ToString();
+                    i--;
                 }
-                i++;
             }
         }
     }
