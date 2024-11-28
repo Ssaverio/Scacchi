@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Brignoli_Taramelli_Gioco.Properties;
 
 namespace Brignoli_Taramelli_Gioco
 {
@@ -73,12 +74,32 @@ namespace Brignoli_Taramelli_Gioco
 
         private void GeneraPosizione(byte[] pos)
         {
+            Bitmap[] imgPezzi = new Bitmap[12]
+            {
+                Resources.BPawn,
+                Resources.BKnight,
+                Resources.BBishop,
+                Resources.BRook,
+                Resources.BQueen,
+                Resources.BKing,                
+                Resources.WPawn,
+                Resources.WKnight,
+                Resources.WBishop,
+                Resources.WRook,
+                Resources.WQueen,
+                Resources.WKing,
+            };
+
             int i = 63;
             foreach (Control control in ChessBoardPanel.Controls)
             {
                 if (control is Label casella)
                 {
-                    casella.Text = pos[i].ToString();
+                    if (pos[i] > 0)
+                    {
+                        byte numericPiece = (byte)(pos[i] - 1);
+                        casella.Image = imgPezzi[numericPiece];
+                    }
                     i--;
                 }
             }

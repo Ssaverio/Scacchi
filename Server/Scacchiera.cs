@@ -30,7 +30,7 @@ namespace Server
 
         public static void LoadFEN(string fen)
         {
-            var pieceMap = new Dictionary<char, byte>()
+            Dictionary<char, byte> pieceMap = new Dictionary<char, byte>()
             {
                 ['k'] = Pezzo.BKing,
                 ['p'] = Pezzo.BPawn,

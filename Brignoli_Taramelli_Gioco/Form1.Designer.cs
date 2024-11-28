@@ -213,7 +213,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 64);
             this.label2.TabIndex = 0;
-            this.label2.Text = "c";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -226,7 +225,6 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 64);
             this.label3.TabIndex = 1;
-            this.label3.Text = "c";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -239,7 +237,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 64);
             this.label4.TabIndex = 2;
-            this.label4.Text = "c";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -252,7 +249,6 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 64);
             this.label5.TabIndex = 3;
-            this.label5.Text = "c";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -265,7 +261,6 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 64);
             this.label6.TabIndex = 4;
-            this.label6.Text = "c";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -278,7 +273,6 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 64);
             this.label7.TabIndex = 5;
-            this.label7.Text = "c";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -291,7 +285,6 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 64);
             this.label8.TabIndex = 6;
-            this.label8.Text = "c";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -304,7 +297,6 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 64);
             this.label9.TabIndex = 7;
-            this.label9.Text = "c";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -317,7 +309,6 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(64, 64);
             this.label10.TabIndex = 8;
-            this.label10.Text = "c";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
@@ -330,7 +321,6 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(64, 64);
             this.label11.TabIndex = 9;
-            this.label11.Text = "c";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label12
@@ -343,7 +333,6 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(64, 64);
             this.label12.TabIndex = 10;
-            this.label12.Text = "c";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
@@ -356,7 +345,6 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(64, 64);
             this.label13.TabIndex = 11;
-            this.label13.Text = "c";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
@@ -369,7 +357,6 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 64);
             this.label14.TabIndex = 12;
-            this.label14.Text = "c";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label15
@@ -382,7 +369,6 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 64);
             this.label15.TabIndex = 13;
-            this.label15.Text = "c";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
@@ -395,7 +381,6 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(64, 64);
             this.label16.TabIndex = 14;
-            this.label16.Text = "c";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
@@ -408,7 +393,6 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(64, 64);
             this.label17.TabIndex = 15;
-            this.label17.Text = "c";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
@@ -421,7 +405,6 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(64, 64);
             this.label18.TabIndex = 16;
-            this.label18.Text = "c";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label19
@@ -434,7 +417,6 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(64, 64);
             this.label19.TabIndex = 17;
-            this.label19.Text = "c";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label20
@@ -447,7 +429,6 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 64);
             this.label20.TabIndex = 18;
-            this.label20.Text = "c";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label21
@@ -460,7 +441,6 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(64, 64);
             this.label21.TabIndex = 19;
-            this.label21.Text = "c";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
@@ -473,7 +453,6 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(64, 64);
             this.label22.TabIndex = 20;
-            this.label22.Text = "c";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label23
@@ -486,7 +465,6 @@
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(64, 64);
             this.label23.TabIndex = 21;
-            this.label23.Text = "c";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label24
@@ -499,7 +477,6 @@
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(64, 64);
             this.label24.TabIndex = 22;
-            this.label24.Text = "c";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label25
@@ -512,7 +489,6 @@
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(64, 64);
             this.label25.TabIndex = 23;
-            this.label25.Text = "c";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label26
@@ -525,7 +501,6 @@
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(64, 64);
             this.label26.TabIndex = 24;
-            this.label26.Text = "c";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label27
@@ -538,7 +513,6 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(64, 64);
             this.label27.TabIndex = 25;
-            this.label27.Text = "c";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label28
@@ -551,7 +525,6 @@
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(64, 64);
             this.label28.TabIndex = 26;
-            this.label28.Text = "c";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label29
@@ -564,7 +537,6 @@
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(64, 64);
             this.label29.TabIndex = 27;
-            this.label29.Text = "c";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label30
@@ -577,7 +549,6 @@
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(64, 64);
             this.label30.TabIndex = 28;
-            this.label30.Text = "c";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label31
@@ -590,7 +561,6 @@
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(64, 64);
             this.label31.TabIndex = 29;
-            this.label31.Text = "c";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label32
@@ -603,7 +573,6 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(64, 64);
             this.label32.TabIndex = 30;
-            this.label32.Text = "c";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label33
@@ -616,7 +585,6 @@
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(64, 64);
             this.label33.TabIndex = 31;
-            this.label33.Text = "c";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label34
@@ -629,7 +597,6 @@
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(64, 64);
             this.label34.TabIndex = 32;
-            this.label34.Text = "c";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label35
@@ -642,7 +609,6 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(64, 64);
             this.label35.TabIndex = 33;
-            this.label35.Text = "c";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label36
@@ -655,7 +621,6 @@
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(64, 64);
             this.label36.TabIndex = 34;
-            this.label36.Text = "c";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label37
@@ -668,7 +633,6 @@
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(64, 64);
             this.label37.TabIndex = 35;
-            this.label37.Text = "c";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label38
@@ -681,7 +645,6 @@
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(64, 64);
             this.label38.TabIndex = 36;
-            this.label38.Text = "c";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label39
@@ -694,7 +657,6 @@
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(64, 64);
             this.label39.TabIndex = 37;
-            this.label39.Text = "c";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label40
@@ -707,7 +669,6 @@
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(64, 64);
             this.label40.TabIndex = 38;
-            this.label40.Text = "c";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label41
@@ -720,7 +681,6 @@
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(64, 64);
             this.label41.TabIndex = 39;
-            this.label41.Text = "c";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label42
@@ -733,7 +693,6 @@
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(64, 64);
             this.label42.TabIndex = 40;
-            this.label42.Text = "c";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label43
@@ -746,7 +705,6 @@
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(64, 64);
             this.label43.TabIndex = 41;
-            this.label43.Text = "c";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label44
@@ -759,7 +717,6 @@
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(64, 64);
             this.label44.TabIndex = 42;
-            this.label44.Text = "c";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label45
@@ -772,7 +729,6 @@
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(64, 64);
             this.label45.TabIndex = 43;
-            this.label45.Text = "c";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label46
@@ -785,7 +741,6 @@
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(64, 64);
             this.label46.TabIndex = 44;
-            this.label46.Text = "c";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label47
@@ -798,7 +753,6 @@
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(64, 64);
             this.label47.TabIndex = 45;
-            this.label47.Text = "c";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label48
@@ -811,7 +765,6 @@
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(64, 64);
             this.label48.TabIndex = 46;
-            this.label48.Text = "c";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label49
@@ -824,7 +777,6 @@
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(64, 64);
             this.label49.TabIndex = 47;
-            this.label49.Text = "c";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label50
@@ -837,7 +789,6 @@
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(64, 64);
             this.label50.TabIndex = 48;
-            this.label50.Text = "c";
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label51
@@ -850,7 +801,6 @@
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(64, 64);
             this.label51.TabIndex = 49;
-            this.label51.Text = "c";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label52
@@ -863,7 +813,6 @@
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(64, 64);
             this.label52.TabIndex = 50;
-            this.label52.Text = "c";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label53
@@ -876,7 +825,6 @@
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(64, 64);
             this.label53.TabIndex = 51;
-            this.label53.Text = "c";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label54
@@ -889,7 +837,6 @@
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(64, 64);
             this.label54.TabIndex = 52;
-            this.label54.Text = "c";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label55
@@ -902,7 +849,6 @@
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(64, 64);
             this.label55.TabIndex = 53;
-            this.label55.Text = "c";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label56
@@ -915,7 +861,6 @@
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(64, 64);
             this.label56.TabIndex = 54;
-            this.label56.Text = "c";
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label57
@@ -928,7 +873,6 @@
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(64, 64);
             this.label57.TabIndex = 55;
-            this.label57.Text = "c";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label58
@@ -941,7 +885,6 @@
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(64, 64);
             this.label58.TabIndex = 56;
-            this.label58.Text = "c";
             this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label59
@@ -954,7 +897,6 @@
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(64, 64);
             this.label59.TabIndex = 57;
-            this.label59.Text = "c";
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label60
@@ -967,7 +909,6 @@
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(64, 64);
             this.label60.TabIndex = 58;
-            this.label60.Text = "c";
             this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label61
@@ -980,7 +921,6 @@
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(64, 64);
             this.label61.TabIndex = 59;
-            this.label61.Text = "c";
             this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label62
@@ -993,7 +933,6 @@
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(64, 64);
             this.label62.TabIndex = 60;
-            this.label62.Text = "c";
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label63
@@ -1006,7 +945,6 @@
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(64, 64);
             this.label63.TabIndex = 61;
-            this.label63.Text = "c";
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label64
@@ -1019,7 +957,6 @@
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(64, 64);
             this.label64.TabIndex = 62;
-            this.label64.Text = "c";
             this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label65
@@ -1032,7 +969,6 @@
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(64, 64);
             this.label65.TabIndex = 63;
-            this.label65.Text = "c";
             this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
