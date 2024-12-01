@@ -18,8 +18,10 @@ namespace Brignoli_Taramelli_Gioco
         TcpClient client;
         NetworkStream stream;
 
-        
 
+        Label firstClicked = null;
+        Label secondClicked = null;
+        int turn = 2;
 
         public Form1()
         {
@@ -51,17 +53,31 @@ namespace Brignoli_Taramelli_Gioco
 
         private void ReceiveMessages()
         {
-            byte[] bytesToRead = new byte[64];
+            byte[] buffer = new byte[65];
 
             while (true)
             {
                 try
                 {
-                    int bytesRead = stream.Read(bytesToRead, 0, bytesToRead.Length);
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+
+                    if (bytesRead == 1 && turn == 2)
+                    {
+                        TBTurno.Text = buffer[0].ToString();
+                        turn = buffer[0];
+
+                        stream.Write(new byte[1] { 0 }, 0, 1);
+                    }
 
                     if (bytesRead > 0)
                     {
-                        if (ChessBoardPanel.IsHandleCreated) ChessBoardPanel.Invoke(new LoadPos(GeneraPosizione), bytesToRead);
+                        while (!ChessBoardPanel.IsHandleCreated) Thread.Sleep(100);
+                        
+                        ChessBoardPanel.Invoke(new LoadPos(GeneraPosizione), buffer);
+
+                        if (buffer[0] == turn)
+                        {
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -90,7 +106,9 @@ namespace Brignoli_Taramelli_Gioco
                 Resources.WKing,
             };
 
-            int i = 63;
+            int i = 1;
+            if (turn == 1) i = 64;
+
             foreach (Control control in ChessBoardPanel.Controls)
             {
                 if (control is Label casella)
@@ -100,7 +118,9 @@ namespace Brignoli_Taramelli_Gioco
                         byte numericPiece = (byte)(pos[i] - 1);
                         casella.Image = imgPezzi[numericPiece];
                     }
-                    i--;
+
+                    if (turn == 1) i--;
+                    else if (turn == 0) i++;
                 }
             }
         }

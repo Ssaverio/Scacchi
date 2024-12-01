@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Server
 {
@@ -16,6 +17,7 @@ namespace Server
         static List<TcpClient> connectedClients = new List<TcpClient>();
 
         const string startFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+        static byte turn = 1;
 
         static void Main(string[] args)
         {
@@ -66,7 +68,14 @@ namespace Server
         static void HandleClient(object obj)
         {
             TcpClient client = (TcpClient)obj;
-            NetworkStream nwStream = client.GetStream();
+            NetworkStream stream = client.GetStream();
+
+            if (currentClients == 1)
+                stream.Write(new byte[1] {1}, 0, 1);
+            else if (currentClients == 2)
+                stream.Write(new byte[1] {0}, 0, 1);
+
+            stream.Read(new byte[1], 0, 1);
 
             try
             {
@@ -74,14 +83,13 @@ namespace Server
                 {
                     if (currentClients == 2 && client.Connected)
                     {
-                        SendToAllClients(Scacchiera.posizione);
-
+                        byte[] send = new byte[1] { turn }.Concat(Scacchiera.posizione).ToArray();
+                        Console.WriteLine("Invio dei dati...");
+                        stream.Write (send, 0, send.Length);
 
                         byte[] buffer = new byte[64];
-                        int bytesRead = nwStream.Read(buffer, 0, buffer.Length);
-
-                        string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                        Console.WriteLine("Received: " + message);
+                        int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                        Console.WriteLine("Risposta arrivata");
 
                     } else Thread.Sleep(100);
                 }
@@ -112,6 +120,7 @@ namespace Server
                     try
                     {
                         NetworkStream stream = client.GetStream();
+                        Console.WriteLine($"Invio dei dati...");
                         stream.Write(buffer, 0, buffer.Length);
                     }
                     catch (Exception ex)
