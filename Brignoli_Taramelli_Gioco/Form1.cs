@@ -181,5 +181,10 @@ namespace Brignoli_Taramelli_Gioco
             stream.Close();
             client.Close();
         }
+
+        private void BtnDeseleziona_Click(object sender, EventArgs e)
+        {
+            DeselezionaCaselle();
+        }
     }
 }

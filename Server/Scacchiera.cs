@@ -23,9 +23,15 @@ namespace Server
             posizione = CopiaPosizione(penultimaPosizione);
         }
 
-        public static bool PosizioneValida(byte turn)
+        public static bool PosizioneValida(Mossa mv, byte turn)
         {
-            return false;
+            // Il giocatore non può muovere i pezzi dell'altro o selezionare caselle vuote come primo click
+            if (penultimaPosizione[mv.inizio] <= 6 * turn || penultimaPosizione[mv.inizio] > 6 + 6 * turn) return false;
+
+            // Il giocatore non può muovere un pezzo dove è presente un altro dello stesso colore
+            if (penultimaPosizione[mv.fine] > 6 * turn && penultimaPosizione[mv.fine] < 7 + 7 * turn) return false;
+
+            return true;
         }
         public static byte[] CopiaPosizione(byte[] pos)
         {

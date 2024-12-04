@@ -97,6 +97,7 @@
             this.TBTurno = new System.Windows.Forms.TextBox();
             this.TBColore = new System.Windows.Forms.TextBox();
             this.LColore = new System.Windows.Forms.Label();
+            this.BtnDeseleziona = new System.Windows.Forms.Button();
             this.ChessBoardPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1057,11 +1058,22 @@
             this.LColore.TabIndex = 7;
             this.LColore.Text = "Tu sei:";
             // 
+            // BtnDeseleziona
+            // 
+            this.BtnDeseleziona.Location = new System.Drawing.Point(71, 107);
+            this.BtnDeseleziona.Name = "BtnDeseleziona";
+            this.BtnDeseleziona.Size = new System.Drawing.Size(138, 49);
+            this.BtnDeseleziona.TabIndex = 9;
+            this.BtnDeseleziona.Text = "Deseleziona";
+            this.BtnDeseleziona.UseVisualStyleBackColor = true;
+            this.BtnDeseleziona.Click += new System.EventHandler(this.BtnDeseleziona_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 620);
+            this.Controls.Add(this.BtnDeseleziona);
             this.Controls.Add(this.TBColore);
             this.Controls.Add(this.LColore);
             this.Controls.Add(this.TBTurno);
@@ -1145,6 +1157,7 @@
         private System.Windows.Forms.TextBox TBTurno;
         private System.Windows.Forms.TextBox TBColore;
         private System.Windows.Forms.Label LColore;
+        private System.Windows.Forms.Button BtnDeseleziona;
     }
 }
 

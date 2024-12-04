@@ -101,17 +101,23 @@ namespace Server
         {
             Scacchiera.GiocaMossa(mv);
 
-            bool mossaValida = Scacchiera.PosizioneValida(turno);
+            bool mossaValida = Scacchiera.PosizioneValida(mv, turno);
             if (mossaValida)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Mossa valida!");
+                Console.ResetColor();
+
                 CambiaTurno();
                 Scacchiera.Dump();
                 InviaPosizione();
             }
             else
-            {
+            { 
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Mossa non valida!");
+                Console.ResetColor();
+
                 Scacchiera.AnnullaUltimaMossa();
                 InviaPosizione();
             }
