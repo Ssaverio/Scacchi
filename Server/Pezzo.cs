@@ -21,7 +21,5 @@ namespace Server
         public static byte BBishop = 3;
         public static byte BKnight = 2;
         public static byte BPawn = 1;
-
-        public static byte Vuoto = 0;
     }
 }

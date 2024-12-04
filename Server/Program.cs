@@ -12,12 +12,12 @@ namespace Server
     {
         const int PORT_NO = 50000;
         const string SERVER_IP = "127.0.0.1";
-        const int MAX_CLIENTS = 2;
-        static int currentClients = 0;
-        static List<TcpClient> connectedClients = new List<TcpClient>();
+
+        static TcpClient biancoClient, neroClient;
+        static NetworkStream bianco, nero;
 
         const string startFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-        static byte turn = 1;
+        static byte turno = 1;
 
         static void Main(string[] args)
         {
@@ -38,97 +38,97 @@ namespace Server
             {
                 try
                 {
-                    if (currentClients < MAX_CLIENTS)
-                    {
-                        TcpClient client = listener.AcceptTcpClient();
-                        Interlocked.Increment(ref currentClients);
-                        Console.WriteLine($"New client connected. Current clients: {currentClients}");
+                    biancoClient = listener.AcceptTcpClient();
+                    bianco = biancoClient.GetStream();
+                    Console.WriteLine("Giocatore bianco connesso");
 
-                        lock (connectedClients)
-                        {
-                            connectedClients.Add(client);
-                        }
-                        Thread clientThread = new Thread(HandleClient);
-                        clientThread.Start(client);
-                    }
-                    else
+                    bianco.Write(new byte[1] { 1 }, 0, 1);
+                    Console.WriteLine("Mando al giocatore bianco il turno 1");
+
+                    neroClient = listener.AcceptTcpClient();
+                    nero = neroClient.GetStream();
+                    Console.WriteLine("CLient nero connesso");
+
+                    nero.Write(new byte[1] { 0 }, 0, 1);
+                    Console.WriteLine("Mando al giocatore nero il turno 0");
+
+                    byte[] buffer = new byte[65];
+                    byte[] bufferMossa = new byte[2];
+                    int byteLetti;
+
+                    InviaPosizione();
+
+                    while (true)
                     {
-                        Console.WriteLine("Max clients reached. Rejecting new connection...");
-                        TcpClient rejectedClient = listener.AcceptTcpClient();
-                        rejectedClient.Close();
+                        byteLetti = 0;
+
+                        if (turno == 1)
+                        {
+                            Console.WriteLine("Aspettando mossa del bianco...");
+
+                            byteLetti = bianco.Read(bufferMossa, 0, 2);
+                            
+                            Mossa move = new Mossa(bufferMossa);
+                            Console.WriteLine($"Bianco ha mosso: {move.inizio} -> {move.fine}");
+                            VerificaMossa(move);
+                        } else if (turno == 0)
+                        {
+                            Console.WriteLine("Aspettando mossa del nero...");
+
+                            byteLetti = nero.Read(bufferMossa, 0, 2);
+                            
+                            Mossa move = new Mossa(bufferMossa);
+                            Console.WriteLine($"Nero ha mosso: {move.inizio} -> {move.fine}");
+                            VerificaMossa(move);
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error: " + ex.Message);
                 }
-            }
-        } 
-
-        static void HandleClient(object obj)
-        {
-            TcpClient client = (TcpClient)obj;
-            NetworkStream stream = client.GetStream();
-
-            if (currentClients == 1)
-                stream.Write(new byte[1] {1}, 0, 1);
-            else if (currentClients == 2)
-                stream.Write(new byte[1] {0}, 0, 1);
-
-            stream.Read(new byte[1], 0, 1);
-
-            try
-            {
-                while (true)
+                finally
                 {
-                    if (currentClients == 2 && client.Connected)
-                    {
-                        byte[] send = new byte[1] { turn }.Concat(Scacchiera.posizione).ToArray();
-                        Console.WriteLine("Invio dei dati...");
-                        stream.Write (send, 0, send.Length);
-
-                        byte[] buffer = new byte[64];
-                        int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                        Console.WriteLine("Risposta arrivata");
-
-                    } else Thread.Sleep(100);
+                    biancoClient.Close();
+                    neroClient.Close();
+                    listener.Stop();
+                    Console.ReadKey();
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
-            finally
-            {
-                lock (connectedClients)
-                {
-                    connectedClients.Remove(client);
-                }
-
-                client.Close();
-                Interlocked.Decrement(ref currentClients);
-                Console.WriteLine($"Client disconnected. Current clients: {currentClients}");
             }
         }
 
-        static void SendToAllClients(byte[] buffer)
+        private static void VerificaMossa(Mossa mv)
         {
-            lock (connectedClients)
+            Scacchiera.GiocaMossa(mv);
+
+            bool mossaValida = Scacchiera.PosizioneValida(turno);
+            if (mossaValida)
             {
-                foreach (TcpClient client in connectedClients)
-                {
-                    try
-                    {
-                        NetworkStream stream = client.GetStream();
-                        Console.WriteLine($"Invio dei dati...");
-                        stream.Write(buffer, 0, buffer.Length);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error sending message to client: {ex.Message}");
-                    }
-                }
+                Console.WriteLine("Mossa valida!");
+                CambiaTurno();
+                Scacchiera.Dump();
+                InviaPosizione();
             }
+            else
+            {
+                Console.WriteLine("Mossa non valida!");
+                Scacchiera.AnnullaUltimaMossa();
+                InviaPosizione();
+            }
+        }
+
+        private static void InviaPosizione()
+        {
+            byte[] pos = new byte[1] { turno }.Concat(Scacchiera.posizione).ToArray();
+            bianco.Write(pos, 0, 65);
+            Console.WriteLine("Mando posizione al giocatore bianco");
+            nero.Write(pos, 0, 65);
+            Console.WriteLine("Mando posizione al giocatore nero");
+        }
+
+        private static void CambiaTurno()
+        {
+            turno = (byte)(turno == 1 ? 0 : 1);
         }
     }
 }

@@ -95,6 +95,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LTurno = new System.Windows.Forms.Label();
             this.TBTurno = new System.Windows.Forms.TextBox();
+            this.TBColore = new System.Windows.Forms.TextBox();
+            this.LColore = new System.Windows.Forms.Label();
             this.ChessBoardPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,7 +176,7 @@
             this.ChessBoardPanel.Controls.Add(this.label4, 2, 0);
             this.ChessBoardPanel.Controls.Add(this.label3, 1, 0);
             this.ChessBoardPanel.Controls.Add(this.label2, 0, 0);
-            this.ChessBoardPanel.Location = new System.Drawing.Point(161, 43);
+            this.ChessBoardPanel.Location = new System.Drawing.Point(260, 43);
             this.ChessBoardPanel.Name = "ChessBoardPanel";
             this.ChessBoardPanel.RowCount = 8;
             this.ChessBoardPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -200,6 +202,7 @@
             this.label65.Size = new System.Drawing.Size(64, 64);
             this.label65.TabIndex = 63;
             this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label65.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label64
             // 
@@ -212,6 +215,7 @@
             this.label64.Size = new System.Drawing.Size(64, 64);
             this.label64.TabIndex = 62;
             this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label64.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label63
             // 
@@ -224,6 +228,7 @@
             this.label63.Size = new System.Drawing.Size(64, 64);
             this.label63.TabIndex = 61;
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label63.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label62
             // 
@@ -236,6 +241,7 @@
             this.label62.Size = new System.Drawing.Size(64, 64);
             this.label62.TabIndex = 60;
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label62.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label61
             // 
@@ -248,6 +254,7 @@
             this.label61.Size = new System.Drawing.Size(64, 64);
             this.label61.TabIndex = 59;
             this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label61.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label60
             // 
@@ -260,6 +267,7 @@
             this.label60.Size = new System.Drawing.Size(64, 64);
             this.label60.TabIndex = 58;
             this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label60.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label59
             // 
@@ -272,6 +280,7 @@
             this.label59.Size = new System.Drawing.Size(64, 64);
             this.label59.TabIndex = 57;
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label59.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label58
             // 
@@ -284,6 +293,7 @@
             this.label58.Size = new System.Drawing.Size(64, 64);
             this.label58.TabIndex = 56;
             this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label58.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label57
             // 
@@ -296,6 +306,7 @@
             this.label57.Size = new System.Drawing.Size(64, 64);
             this.label57.TabIndex = 55;
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label57.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label56
             // 
@@ -308,6 +319,7 @@
             this.label56.Size = new System.Drawing.Size(64, 64);
             this.label56.TabIndex = 54;
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label56.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label55
             // 
@@ -320,6 +332,7 @@
             this.label55.Size = new System.Drawing.Size(64, 64);
             this.label55.TabIndex = 53;
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label55.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label54
             // 
@@ -332,6 +345,7 @@
             this.label54.Size = new System.Drawing.Size(64, 64);
             this.label54.TabIndex = 52;
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label54.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label53
             // 
@@ -344,6 +358,7 @@
             this.label53.Size = new System.Drawing.Size(64, 64);
             this.label53.TabIndex = 51;
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label53.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label52
             // 
@@ -356,6 +371,7 @@
             this.label52.Size = new System.Drawing.Size(64, 64);
             this.label52.TabIndex = 50;
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label52.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label51
             // 
@@ -368,6 +384,7 @@
             this.label51.Size = new System.Drawing.Size(64, 64);
             this.label51.TabIndex = 49;
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label51.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label50
             // 
@@ -380,6 +397,7 @@
             this.label50.Size = new System.Drawing.Size(64, 64);
             this.label50.TabIndex = 48;
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label50.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label49
             // 
@@ -392,6 +410,7 @@
             this.label49.Size = new System.Drawing.Size(64, 64);
             this.label49.TabIndex = 47;
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label49.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label48
             // 
@@ -404,6 +423,7 @@
             this.label48.Size = new System.Drawing.Size(64, 64);
             this.label48.TabIndex = 46;
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label48.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label47
             // 
@@ -416,6 +436,7 @@
             this.label47.Size = new System.Drawing.Size(64, 64);
             this.label47.TabIndex = 45;
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label47.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label46
             // 
@@ -428,6 +449,7 @@
             this.label46.Size = new System.Drawing.Size(64, 64);
             this.label46.TabIndex = 44;
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label46.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label45
             // 
@@ -440,6 +462,7 @@
             this.label45.Size = new System.Drawing.Size(64, 64);
             this.label45.TabIndex = 43;
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label45.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label44
             // 
@@ -452,6 +475,7 @@
             this.label44.Size = new System.Drawing.Size(64, 64);
             this.label44.TabIndex = 42;
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label44.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label43
             // 
@@ -464,6 +488,7 @@
             this.label43.Size = new System.Drawing.Size(64, 64);
             this.label43.TabIndex = 41;
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label43.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label42
             // 
@@ -476,6 +501,7 @@
             this.label42.Size = new System.Drawing.Size(64, 64);
             this.label42.TabIndex = 40;
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label42.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label41
             // 
@@ -488,6 +514,7 @@
             this.label41.Size = new System.Drawing.Size(64, 64);
             this.label41.TabIndex = 39;
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label41.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label40
             // 
@@ -500,6 +527,7 @@
             this.label40.Size = new System.Drawing.Size(64, 64);
             this.label40.TabIndex = 38;
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label40.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label39
             // 
@@ -512,6 +540,7 @@
             this.label39.Size = new System.Drawing.Size(64, 64);
             this.label39.TabIndex = 37;
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label39.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label38
             // 
@@ -524,6 +553,7 @@
             this.label38.Size = new System.Drawing.Size(64, 64);
             this.label38.TabIndex = 36;
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label38.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label37
             // 
@@ -536,6 +566,7 @@
             this.label37.Size = new System.Drawing.Size(64, 64);
             this.label37.TabIndex = 35;
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label37.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label36
             // 
@@ -548,6 +579,7 @@
             this.label36.Size = new System.Drawing.Size(64, 64);
             this.label36.TabIndex = 34;
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label36.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label35
             // 
@@ -560,6 +592,7 @@
             this.label35.Size = new System.Drawing.Size(64, 64);
             this.label35.TabIndex = 33;
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label35.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label34
             // 
@@ -572,6 +605,7 @@
             this.label34.Size = new System.Drawing.Size(64, 64);
             this.label34.TabIndex = 32;
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label34.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label33
             // 
@@ -584,6 +618,7 @@
             this.label33.Size = new System.Drawing.Size(64, 64);
             this.label33.TabIndex = 31;
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label33.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label32
             // 
@@ -596,6 +631,7 @@
             this.label32.Size = new System.Drawing.Size(64, 64);
             this.label32.TabIndex = 30;
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label32.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label31
             // 
@@ -608,6 +644,7 @@
             this.label31.Size = new System.Drawing.Size(64, 64);
             this.label31.TabIndex = 29;
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label31.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label30
             // 
@@ -620,6 +657,7 @@
             this.label30.Size = new System.Drawing.Size(64, 64);
             this.label30.TabIndex = 28;
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label30.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label29
             // 
@@ -632,6 +670,7 @@
             this.label29.Size = new System.Drawing.Size(64, 64);
             this.label29.TabIndex = 27;
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label29.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label28
             // 
@@ -644,6 +683,7 @@
             this.label28.Size = new System.Drawing.Size(64, 64);
             this.label28.TabIndex = 26;
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label28.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label27
             // 
@@ -656,6 +696,7 @@
             this.label27.Size = new System.Drawing.Size(64, 64);
             this.label27.TabIndex = 25;
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label27.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label26
             // 
@@ -668,6 +709,7 @@
             this.label26.Size = new System.Drawing.Size(64, 64);
             this.label26.TabIndex = 24;
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label26.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label25
             // 
@@ -680,6 +722,7 @@
             this.label25.Size = new System.Drawing.Size(64, 64);
             this.label25.TabIndex = 23;
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label25.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label24
             // 
@@ -692,6 +735,7 @@
             this.label24.Size = new System.Drawing.Size(64, 64);
             this.label24.TabIndex = 22;
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label24.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label23
             // 
@@ -704,6 +748,7 @@
             this.label23.Size = new System.Drawing.Size(64, 64);
             this.label23.TabIndex = 21;
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label23.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label22
             // 
@@ -716,6 +761,7 @@
             this.label22.Size = new System.Drawing.Size(64, 64);
             this.label22.TabIndex = 20;
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label22.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label21
             // 
@@ -728,6 +774,7 @@
             this.label21.Size = new System.Drawing.Size(64, 64);
             this.label21.TabIndex = 19;
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label21.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label20
             // 
@@ -740,6 +787,7 @@
             this.label20.Size = new System.Drawing.Size(64, 64);
             this.label20.TabIndex = 18;
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label20.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label19
             // 
@@ -752,6 +800,7 @@
             this.label19.Size = new System.Drawing.Size(64, 64);
             this.label19.TabIndex = 17;
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label19.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label18
             // 
@@ -764,6 +813,7 @@
             this.label18.Size = new System.Drawing.Size(64, 64);
             this.label18.TabIndex = 16;
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label18.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label17
             // 
@@ -776,6 +826,7 @@
             this.label17.Size = new System.Drawing.Size(64, 64);
             this.label17.TabIndex = 15;
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label17.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label16
             // 
@@ -788,6 +839,7 @@
             this.label16.Size = new System.Drawing.Size(64, 64);
             this.label16.TabIndex = 14;
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label16.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label15
             // 
@@ -800,6 +852,7 @@
             this.label15.Size = new System.Drawing.Size(64, 64);
             this.label15.TabIndex = 13;
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label15.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label14
             // 
@@ -812,6 +865,7 @@
             this.label14.Size = new System.Drawing.Size(64, 64);
             this.label14.TabIndex = 12;
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label14.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label13
             // 
@@ -824,6 +878,7 @@
             this.label13.Size = new System.Drawing.Size(64, 64);
             this.label13.TabIndex = 11;
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label12
             // 
@@ -836,6 +891,7 @@
             this.label12.Size = new System.Drawing.Size(64, 64);
             this.label12.TabIndex = 10;
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label12.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label11
             // 
@@ -848,6 +904,7 @@
             this.label11.Size = new System.Drawing.Size(64, 64);
             this.label11.TabIndex = 9;
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label11.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label10
             // 
@@ -860,6 +917,7 @@
             this.label10.Size = new System.Drawing.Size(64, 64);
             this.label10.TabIndex = 8;
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label9
             // 
@@ -872,6 +930,7 @@
             this.label9.Size = new System.Drawing.Size(64, 64);
             this.label9.TabIndex = 7;
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label8
             // 
@@ -884,6 +943,7 @@
             this.label8.Size = new System.Drawing.Size(64, 64);
             this.label8.TabIndex = 6;
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label7
             // 
@@ -896,6 +956,7 @@
             this.label7.Size = new System.Drawing.Size(64, 64);
             this.label7.TabIndex = 5;
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label6
             // 
@@ -908,6 +969,7 @@
             this.label6.Size = new System.Drawing.Size(64, 64);
             this.label6.TabIndex = 4;
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label5
             // 
@@ -920,6 +982,7 @@
             this.label5.Size = new System.Drawing.Size(64, 64);
             this.label5.TabIndex = 3;
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label4
             // 
@@ -932,6 +995,7 @@
             this.label4.Size = new System.Drawing.Size(64, 64);
             this.label4.TabIndex = 2;
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label3
             // 
@@ -944,6 +1008,7 @@
             this.label3.Size = new System.Drawing.Size(64, 64);
             this.label3.TabIndex = 1;
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // label2
             // 
@@ -956,11 +1021,12 @@
             this.label2.Size = new System.Drawing.Size(64, 64);
             this.label2.TabIndex = 0;
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.SelezionaCasella);
             // 
             // LTurno
             // 
             this.LTurno.AutoSize = true;
-            this.LTurno.Location = new System.Drawing.Point(12, 43);
+            this.LTurno.Location = new System.Drawing.Point(28, 72);
             this.LTurno.Name = "LTurno";
             this.LTurno.Size = new System.Drawing.Size(38, 13);
             this.LTurno.TabIndex = 5;
@@ -968,17 +1034,36 @@
             // 
             // TBTurno
             // 
-            this.TBTurno.Location = new System.Drawing.Point(55, 40);
+            this.TBTurno.Location = new System.Drawing.Point(71, 69);
             this.TBTurno.Name = "TBTurno";
             this.TBTurno.ReadOnly = true;
-            this.TBTurno.Size = new System.Drawing.Size(75, 20);
+            this.TBTurno.Size = new System.Drawing.Size(149, 20);
             this.TBTurno.TabIndex = 6;
+            // 
+            // TBColore
+            // 
+            this.TBColore.Location = new System.Drawing.Point(71, 43);
+            this.TBColore.Name = "TBColore";
+            this.TBColore.ReadOnly = true;
+            this.TBColore.Size = new System.Drawing.Size(149, 20);
+            this.TBColore.TabIndex = 8;
+            // 
+            // LColore
+            // 
+            this.LColore.AutoSize = true;
+            this.LColore.Location = new System.Drawing.Point(28, 46);
+            this.LColore.Name = "LColore";
+            this.LColore.Size = new System.Drawing.Size(39, 13);
+            this.LColore.TabIndex = 7;
+            this.LColore.Text = "Tu sei:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 620);
+            this.Controls.Add(this.TBColore);
+            this.Controls.Add(this.LColore);
             this.Controls.Add(this.TBTurno);
             this.Controls.Add(this.LTurno);
             this.Controls.Add(this.ChessBoardPanel);
@@ -1058,6 +1143,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LTurno;
         private System.Windows.Forms.TextBox TBTurno;
+        private System.Windows.Forms.TextBox TBColore;
+        private System.Windows.Forms.Label LColore;
     }
 }
 
