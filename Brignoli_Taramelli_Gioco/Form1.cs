@@ -32,7 +32,6 @@ namespace Brignoli_Taramelli_Gioco
             client = new TcpClient(ADDRESS, PORT);
             stream = client.GetStream();
             new Thread(ReceiveMessages).Start();
-
         }
 
         private void GeneraScacchiera()
@@ -134,6 +133,9 @@ namespace Brignoli_Taramelli_Gioco
             {
                 if (control is Label casella)
                 {
+                    casella.ForeColor = Color.Red;
+                    casella.Text = i.ToString();
+
                     if (pos[i] > 0)
                     {
                         byte numericPiece = (byte)(pos[i] - 1);
