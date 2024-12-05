@@ -31,7 +31,7 @@ namespace Server
 
         public static bool PosizioneValida(Mossa mv, byte turno)
         {
-            // Uso l'array penultimaPosizione perché quando muovo la casella di inizio mossa diventa 0
+            // Uso l'array "penultimaPosizione" perché quando muovo la casella di inizio mossa diventa 0
             byte pezzoInizio = penultimaPosizione[mv.inizio];
             byte pezzoFine = penultimaPosizione[mv.fine];
 
@@ -41,7 +41,7 @@ namespace Server
             // Il giocatore non può muovere un pezzo dove è presente un altro dello stesso colore
             if (CasellaContieneStessoColore(pezzoFine, turno)) return false;
 
-            //Controllo le mosse legali per il pezzo che ho mosso
+            // Controllo le mosse legali per il pezzo che ho mosso
             byte[] mosseLegali = MosseLegali(pezzoInizio, turno, mv.inizio);
 
             Console.WriteLine("-----");
@@ -71,15 +71,57 @@ namespace Server
                 for (int i = posizione + offset; i >= 0 && i < 64; i += offset)
                 {
                     byte casella = (byte)i;
+                    bool casellaAlBordo = bordi.Contains(casella);
 
-                    if (CasellaContieneStessoColore(penultimaPosizione[casella], turno))
-                        break;
-                    if (bordi.Contains(casella) || penultimaPosizione[casella] != 0) {
+                    // Controllo se le prime due caselle sono sul bordo (diagonale fuori dalla scacchiera)
+                    if (bordi.Contains(posizione) && casellaAlBordo) break;
+
+                    // Controllo se la diagonale interseca con un pezzo dello stesso colore
+                    if (CasellaContieneStessoColore(penultimaPosizione[casella], turno)) break;
+
+                    // Controllo che la diagonale non esca dalla scacchiera o che si espanda su una casella non vuota
+                    if (casellaAlBordo || penultimaPosizione[casella] != 0) {
+
+                        // Aggiungo la mossa e cambio diagonale
                         mosse.Add(casella);
                         break;
                     }
+
+                    // Altrimenti aggiungo la mossa
                     mosse.Add(casella);
-                    
+                }
+
+            return mosse.ToArray();
+        }        
+        
+        public static byte[] GeneraMosseLaterali(byte posizione, byte turno)
+        {
+            int[] offsets = new int[4] { -8, -1, 1, 8 };
+            HashSet<byte> mosse = new HashSet<byte>();
+
+            foreach (int offset in offsets)
+                for (int i = posizione + offset; i >= 0 && i < 64; i += offset)
+                {
+                    byte casella = (byte)i;
+                    bool casellaAlBordo = bordi.Contains(casella);
+
+                    // Controllo se le prime due caselle sono sul bordo (diagonale fuori dalla scacchiera)
+                    if (bordi.Contains(posizione) && casellaAlBordo) break;
+
+                    // Controllo se la diagonale interseca con un pezzo dello stesso colore
+                    if (CasellaContieneStessoColore(penultimaPosizione[casella], turno)) break;
+
+                    // Controllo che la diagonale non esca dalla scacchiera o che si espanda su una casella non vuota
+                    if (casellaAlBordo || penultimaPosizione[casella] != 0)
+                    {
+
+                        // Aggiungo la mossa e cambio diagonale
+                        mosse.Add(casella);
+                        break;
+                    }
+
+                    // Altrimenti aggiungo la mossa
+                    mosse.Add(casella);
                 }
 
             return mosse.ToArray();
