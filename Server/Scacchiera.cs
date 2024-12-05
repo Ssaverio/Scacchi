@@ -42,45 +42,44 @@ namespace Server
             if (CasellaContieneStessoColore(pezzoFine, turno)) return false;
 
             //Controllo le mosse legali per il pezzo che ho mosso
-            byte[] mosseLegali = MosseLegali(pezzoInizio, pezzoFine, turno, mv.inizio);
+            byte[] mosseLegali = MosseLegali(pezzoInizio, turno, mv.inizio);
 
             Console.WriteLine("-----");
             foreach (byte x in mosseLegali) Console.WriteLine(x);
             Console.WriteLine("-----");
+
             //if (!mosseLegali.Contains(mv.fine)) return false;
 
             return true;
         }
 
-        public static byte[] MosseLegali(byte pezzo, byte pezzoFine, byte turno, byte posizione)
+        public static byte[] MosseLegali(byte pezzo, byte turno, byte posizione)
         {
-            //List<byte> mosse = new List<byte>();
-
             switch (pezzo)
             {
-                case Pezzo.WBishop: return GeneraMosseDiagonali(posizione, pezzoFine, turno);
+                case byte x when x == Pezzo.WBishop || x == Pezzo.BBishop: return GeneraMosseDiagonali(posizione, turno);
                 default: return new byte[0];
             }
         }
 
-        public static byte[] GeneraMosseDiagonali(byte posizione, byte pezzoFine, byte turno)
+        public static byte[] GeneraMosseDiagonali(byte posizione, byte turno)
         {
             int[] offsets = new int[4] { -9, -7, 7, 9 };
-
             HashSet<byte> mosse = new HashSet<byte>();
 
-            Console.WriteLine("Mosse legali: ");
-
             foreach (int offset in offsets)
-                for (int i = posizione; i >= 0 && i < 64; i += offset)
+                for (int i = posizione + offset; i >= 0 && i < 64; i += offset)
                 {
-                    if (CasellaContieneStessoColore(pezzoFine, turno))
+                    byte casella = (byte)i;
+
+                    if (CasellaContieneStessoColore(penultimaPosizione[casella], turno))
                         break;
-                    if (bordi.Contains((byte)i)) {
-                        mosse.Add((byte)i);
+                    if (bordi.Contains(casella) || penultimaPosizione[casella] != 0) {
+                        mosse.Add(casella);
                         break;
                     }
-                    mosse.Add((byte)i);
+                    mosse.Add(casella);
+                    
                 }
 
             return mosse.ToArray();
