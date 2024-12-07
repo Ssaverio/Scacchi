@@ -59,10 +59,33 @@ namespace Server
             {
                 case byte x when x == Pezzo.WBishop || x == Pezzo.BBishop: return GeneraMosseDiagonali(posizione, turno);
                 case byte x when x == Pezzo.WRook || x == Pezzo.BRook: return GeneraMosseLaterali(posizione, turno);
+                case byte x when x == Pezzo.WKnight || x == Pezzo.BKnight: return GeneraMosseCavallo(posizione, turno);
                 case byte x when x == Pezzo.WQueen || x == Pezzo.BQueen: 
                     return GeneraMosseLaterali(posizione, turno).Concat(GeneraMosseDiagonali(posizione, turno)).ToArray();
                 default: return new byte[0];
             }
+        }
+
+        public static byte[] GeneraMosseCavallo(byte posizione, byte turno)
+        {
+            int[] offsets = new int[8] { -17, -10, 6, 15, -6, 10, -15, 17  };
+            byte[] latoSx = bordi.Take(8).ToArray();
+            byte[] latoDx = bordi.Skip(8).Take(8).ToArray();
+
+            HashSet<byte> mosse = new HashSet<byte>();
+
+            foreach (int offset in offsets)
+            {
+                byte casella = (byte)(posizione + offset);
+
+                if ((latoSx.Contains(posizione) && offsets.Take(4).Contains(offset)) || (latoDx.Contains(posizione) && offsets.Skip(4).Contains(offset))) continue;
+
+                if (CasellaContieneStessoColore(penultimaPosizione[casella], turno)) continue;
+
+                mosse.Add(casella);
+            }
+
+            return mosse.ToArray();
         }
 
         public static byte[] GeneraMosseDiagonali(byte posizione, byte turno)
