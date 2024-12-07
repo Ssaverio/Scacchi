@@ -12,6 +12,8 @@ namespace Server
         private static byte[] penultimaPosizione = new byte[64];
         public static byte[] posizione = new byte[64];
 
+        private static byte enPassant = 65;
+
         public static void GiocaMossa(Mossa mv)
         {
             penultimaPosizione = CopiaPosizione(posizione);
@@ -59,10 +61,53 @@ namespace Server
                 case byte x when x == Pezzo.WBishop || x == Pezzo.BBishop: return GeneraMosseDiagonali(posizione, turno);
                 case byte x when x == Pezzo.WRook || x == Pezzo.BRook: return GeneraMosseLaterali(posizione, turno);
                 case byte x when x == Pezzo.WKnight || x == Pezzo.BKnight: return GeneraMosseCavallo(posizione, turno);
+                case byte x when x == Pezzo.WPawn || x == Pezzo.BPawn: return GeneraMossePedone(posizione, turno);
+                case byte x when x == Pezzo.WKing || x == Pezzo.BKing: return GeneraMosseRe(posizione, turno);
                 case byte x when x == Pezzo.WQueen || x == Pezzo.BQueen:
-                    return GeneraMosseLaterali(posizione, turno).Union(GeneraMosseDiagonali(posizione, turno)).ToArray();
+                    return GeneraMosseLaterali(posizione, turno).Concat(GeneraMosseDiagonali(posizione, turno)).ToArray();
                 default: return new byte[0];
             }
+        }
+
+        public static byte[] GeneraMosseRe(byte posizione, byte turno)
+        {
+            int[] offsets = new int[8] { -9, -8, -7, -1, 1, 7, 8, 9 };
+            HashSet<byte> mosse = new HashSet<byte>();
+
+            int rigaInizio = posizione / 8;
+            int colonnaInizio = posizione % 8;
+
+            foreach (int offset in offsets)
+            {
+                if (rigaInizio == 0 && (offset <= -7)) continue;
+                if (rigaInizio == 7 && (offset >= 7)) continue;
+                if (colonnaInizio == 0 && (offset == -9 || offset == -1 || offset == 7)) continue;
+                if (colonnaInizio == 7 && (offset == 9 || offset == 1 || offset == -7)) continue;
+
+                byte casella = (byte)(posizione + offset);
+
+                if (CasellaContieneStessoColore(penultimaPosizione[casella], turno)) continue;
+
+                mosse.Add(casella);
+            }
+
+            return mosse.ToArray();
+        }
+
+        public static byte[] GeneraMossePedone(byte posizione, byte turno)
+        {
+            int[] offsets = new int[8] { -17, -10, 6, 15, -6, 10, -15, 17 };
+            HashSet<byte> mosse = new HashSet<byte>();
+
+            int rigaInizio = posizione / 8;
+            int colonnaInizio = posizione % 8;
+
+            foreach (int offset in offsets)
+            {
+
+            }
+
+            return mosse.ToArray();
         }
 
         public static byte[] GeneraMosseCavallo(byte posizione, byte turno)
