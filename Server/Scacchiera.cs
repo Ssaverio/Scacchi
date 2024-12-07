@@ -11,7 +11,6 @@ namespace Server
     {
         private static byte[] penultimaPosizione = new byte[64];
         public static byte[] posizione = new byte[64];
-        private static readonly byte[] bordi = new byte[28] { 0, 8, 16, 24, 32, 40, 48, 56, 7, 15, 23, 31, 39, 47, 55, 63, 1, 2, 3, 4, 5, 6, 57, 58, 59, 60, 61, 62 };
 
         public static void GiocaMossa(Mossa mv)
         {
@@ -60,8 +59,8 @@ namespace Server
                 case byte x when x == Pezzo.WBishop || x == Pezzo.BBishop: return GeneraMosseDiagonali(posizione, turno);
                 case byte x when x == Pezzo.WRook || x == Pezzo.BRook: return GeneraMosseLaterali(posizione, turno);
                 case byte x when x == Pezzo.WKnight || x == Pezzo.BKnight: return GeneraMosseCavallo(posizione, turno);
-                case byte x when x == Pezzo.WQueen || x == Pezzo.BQueen: 
-                    return GeneraMosseLaterali(posizione, turno).Concat(GeneraMosseDiagonali(posizione, turno)).ToArray();
+                case byte x when x == Pezzo.WQueen || x == Pezzo.BQueen:
+                    return GeneraMosseLaterali(posizione, turno).Union(GeneraMosseDiagonali(posizione, turno)).ToArray();
                 default: return new byte[0];
             }
         }
@@ -69,16 +68,23 @@ namespace Server
         public static byte[] GeneraMosseCavallo(byte posizione, byte turno)
         {
             int[] offsets = new int[8] { -17, -10, 6, 15, -6, 10, -15, 17  };
-            byte[] latoSx = bordi.Take(8).ToArray();
-            byte[] latoDx = bordi.Skip(8).Take(8).ToArray();
-
             HashSet<byte> mosse = new HashSet<byte>();
+
+            int rigaInizio = posizione / 8;
+            int colonnaInizio = posizione % 8;
 
             foreach (int offset in offsets)
             {
-                byte casella = (byte)(posizione + offset);
+                if (rigaInizio == 0 && offset <= -6) continue;
+                if (rigaInizio == 1 && offset <= -15) continue;
+                if (rigaInizio == 6 && offset >= 15) continue;
+                if (rigaInizio == 7 && offset >= 6) continue;
+                if (colonnaInizio == 0 && (offset == -17 || offset == -10 || offset == 6 || offset == 15)) continue;
+                if (colonnaInizio == 1 && (offset == -10 || offset == 6)) continue;
+                if (colonnaInizio == 6 && (offset == 10 || offset == -6)) continue;
+                if (colonnaInizio == 7 && (offset == 17 || offset == 10 || offset == -6 || offset == -15)) continue;
 
-                if ((latoSx.Contains(posizione) && offsets.Take(4).Contains(offset)) || (latoDx.Contains(posizione) && offsets.Skip(4).Contains(offset))) continue;
+                byte casella = (byte)(posizione + offset);
 
                 if (CasellaContieneStessoColore(penultimaPosizione[casella], turno)) continue;
 
@@ -93,20 +99,31 @@ namespace Server
             int[] offsets = new int[4] { -9, -7, 7, 9 };
             HashSet<byte> mosse = new HashSet<byte>();
 
+            int rigaInizio = posizione / 8;
+            int colonnaInizio = posizione % 8;
+
             foreach (int offset in offsets)
+            {
+                // Controllo se la posizione iniziale è ai bordi della scacchiera ed escludo a priori alcune direzioni
+                if (rigaInizio == 0 && offset < 0) continue;
+                if (rigaInizio == 7 && offset > 0) continue;
+                if (colonnaInizio == 0 && (offset == -9 || offset == 7)) continue;
+                if (colonnaInizio == 7 && (offset == 9 || offset == -7)) continue;
+
                 for (int i = posizione + offset; i >= 0 && i < 64; i += offset)
                 {
                     byte casella = (byte)i;
-                    bool casellaAlBordo = bordi.Contains(casella);
 
-                    // Controllo se le prime due caselle sono sul bordo (diagonale fuori dalla scacchiera)
-                    if (bordi.Contains(posizione) && casellaAlBordo) break;
+                    int riga = casella / 8;
+                    int colonna = casella % 8;
 
                     // Controllo se la diagonale interseca con un pezzo dello stesso colore
                     if (CasellaContieneStessoColore(penultimaPosizione[casella], turno)) break;
 
                     // Controllo che la diagonale non esca dalla scacchiera o che si espanda oltre una casella non vuota
-                    if (casellaAlBordo || penultimaPosizione[casella] != 0) {
+                    bool casellaAlBordo = riga == 0 || colonna == 0 || riga == 7 || colonna == 7;
+                    if (casellaAlBordo || penultimaPosizione[casella] != 0)
+                    {
 
                         // Aggiungo la mossa e cambio diagonale
                         mosse.Add(casella);
@@ -116,6 +133,7 @@ namespace Server
                     // Altrimenti aggiungo la mossa
                     mosse.Add(casella);
                 }
+            }
 
             return mosse.ToArray();
         }        
@@ -123,42 +141,50 @@ namespace Server
         public static byte[] GeneraMosseLaterali(byte posizione, byte turno)
         {
             int[] offsets = new int[4] { -8, -1, 1, 8 };
-            byte[] latoSx = bordi.Take(8).ToArray();
-            byte[] latoDx = bordi.Skip(8).Take(8).ToArray();
 
             HashSet<byte> mosse = new HashSet<byte>();
 
+            int rigaInizio = posizione / 8;
+            int colonnaInizio = posizione % 8;
+
             foreach (int offset in offsets)
+            {
+                // Controllo se la posizione iniziale è ai bordi della scacchiera ed escludo a priori alcune direzioni
+                if (rigaInizio == 0 && offset == -8) continue;
+                if (rigaInizio == 7 && offset == 8) continue;
+                if (colonnaInizio == 0 && offset == -1) continue;
+                if (colonnaInizio == 7 && offset == 1) continue;
+
                 for (int i = posizione + offset; i >= 0 && i < 64; i += offset)
                 {
-                    // Controllo se la casella da analizzare esce lateralmente dalla scacchiera
-                    if ((latoDx.Contains(posizione) && offset == 1) || (latoSx.Contains(posizione) && offset == -1)) break;
-
                     byte casella = (byte)i;
-                    byte casellaOffset2 = (byte)(casella + offset);
-                    bool casellaAttualeAlBordo = bordi.Contains(casella);
-                    bool casellaInizialeAlBordo = bordi.Contains(posizione);
 
-                    // Controllo se le due caselle sono entrambe sul bordo o no (xor), oltre alla casella + 2 offset se è nel campo
-                    bool casellaOffset2AlBordo = bordi.Contains(casellaOffset2) && casellaOffset2 >= 0 && casellaOffset2 < 64;
-                    bool invalida = casellaAttualeAlBordo ^ casellaOffset2AlBordo;
-                    if (casellaAttualeAlBordo && casellaAttualeAlBordo && invalida) break;
+                    int riga = casella / 8;
+                    int colonna = casella % 8;
 
                     // Controllo se la riga interseca con un pezzo dello stesso colore
                     if (CasellaContieneStessoColore(penultimaPosizione[casella], turno)) break;
 
-                    // Controllo che la riga non esca dalla scacchiera o che si espanda su una casella non vuota
-                    if ((!casellaInizialeAlBordo && casellaAttualeAlBordo) || penultimaPosizione[casella] != 0)
+                    // Controllo che la riga non esca dalla scacchiera o che si espanda oltre una casella non vuota.
+                    // Il controllo viene effettuato solo sulle righe in cui non parte il pezzo.
+                    bool casellaAlBordo =
+                        (riga == 0 && rigaInizio != 0) ||
+                        (colonna == 0 && colonnaInizio != 0) ||
+                        (riga == 7 && rigaInizio != 7) ||
+                        (colonna == 7 && colonnaInizio != 7);
+
+                    if (casellaAlBordo || penultimaPosizione[casella] != 0)
                     {
                         // Aggiungo la mossa e cambio riga
                         mosse.Add(casella);
                         break;
                     }
 
-                    // Altrimenti aggiungo la mossas
+                    // Altrimenti aggiungo la mossa
                     mosse.Add(casella);
                 }
-
+            }
+            
             return mosse.ToArray();
         }
 
