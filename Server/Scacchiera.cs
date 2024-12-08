@@ -82,7 +82,7 @@ namespace Server
                 if (rigaInizio == 0 && (offset <= -7)) continue;
                 if (rigaInizio == 7 && (offset >= 7)) continue;
                 if (colonnaInizio == 0 && (offset == -9 || offset == -1 || offset == 7)) continue;
-                if (colonnaInizio == 7 && (offset == 9 || offset == 1 || offset == -7)) continue;
+                if (colonnaInizio == 7 && (offset == 9 || offset == 1 || offset == 7)) continue;
 
                 byte casella = (byte)(posizione + offset);
 
@@ -96,15 +96,31 @@ namespace Server
 
         public static byte[] GeneraMossePedone(byte posizione, byte turno)
         {
-            int[] offsets = new int[8] { -17, -10, 6, 15, -6, 10, -15, 17 };
+            int[] offsetsAssoluti = new int[3] { 7, 8, 9 };
             HashSet<byte> mosse = new HashSet<byte>();
 
             int rigaInizio = posizione / 8;
             int colonnaInizio = posizione % 8;
 
-            foreach (int offset in offsets)
-            {
+            int[] offsetsRelativi = offsetsAssoluti.Select(x => turno == 1 ? -1*x : x).ToArray();
+            foreach (int x in offsetsRelativi) Console.WriteLine(x);
 
+            // Bianco: riga iniziale = 6; offsets: -9, -8, -7;
+            // Nero: riga iniziale = 1; offsets: 7, 8, 9;
+
+            foreach (int offset in offsetsRelativi)
+            {
+                byte casella = (byte)(posizione + offset);
+                if (casella < 0 || casella >= 63) continue;
+                
+                byte pezzoCasellaFine = penultimaPosizione[casella];
+                bool pezzoAvversario = !CasellaContieneStessoColore(pezzoCasellaFine, turno) && pezzoCasellaFine != 0;
+
+                int absOffset = Math.Abs(offset);
+                if ((absOffset == 7 || absOffset == 9) && !pezzoAvversario) continue;
+                if (absOffset == 8 && penultimaPosizione[casella] != 0) break;
+
+                mosse.Add(casella);
             }
 
             return mosse.ToArray();
@@ -112,7 +128,7 @@ namespace Server
 
         public static byte[] GeneraMosseCavallo(byte posizione, byte turno)
         {
-            int[] offsets = new int[8] { -17, -10, 6, 15, -6, 10, -15, 17  };
+            int[] offsets = new int[8] { -17, -10, 6, 15, -6, 10, -15, 17 };
             HashSet<byte> mosse = new HashSet<byte>();
 
             int rigaInizio = posizione / 8;
