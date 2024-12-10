@@ -26,6 +26,7 @@ namespace Brignoli_Taramelli_Gioco
 
         public Form1()
         {
+            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             GeneraScacchiera();
 
@@ -37,6 +38,7 @@ namespace Brignoli_Taramelli_Gioco
         private void GeneraScacchiera()
         {
             int i = 0;
+
             foreach (Control control in ChessBoardPanel.Controls)
             {
                 TableLayoutPanelCellPosition pos = ChessBoardPanel.GetPositionFromControl(control);
@@ -66,7 +68,7 @@ namespace Brignoli_Taramelli_Gioco
             {
                 byteLetti = stream.Read(buffer, 0, 65);
 
-                if (byteLetti != 65)
+                if (byteLetti == 0)
                 {
                     Disconnetti();
                     return;
@@ -74,6 +76,18 @@ namespace Brignoli_Taramelli_Gioco
 
                 byte turnoDiGioco = buffer[0];
                 byte[] pos = buffer.Skip(1).ToArray();
+
+                if (pos.All(v => v == turn))
+                {
+                    MessageBox.Show("Hai vinto!");
+                    Disconnetti();
+                    return;
+                } else if (pos.All(v => v == (turn == 1 ? 0 : 1)))
+                {
+                    MessageBox.Show("Hai perso!");
+                    Disconnetti();
+                    return;
+                }
 
                 while (!ChessBoardPanel.IsHandleCreated) Thread.Sleep(100);
                 GeneraPosizione(pos);
@@ -133,9 +147,6 @@ namespace Brignoli_Taramelli_Gioco
             {
                 if (control is Label casella)
                 {
-                    casella.ForeColor = Color.Red;
-                    casella.Text = i.ToString();
-
                     if (pos[i] > 0)
                     {
                         byte numericPiece = (byte)(pos[i] - 1);
@@ -187,6 +198,11 @@ namespace Brignoli_Taramelli_Gioco
         private void BtnDeseleziona_Click(object sender, EventArgs e)
         {
             DeselezionaCaselle();
+        }
+
+        private void Form1_Closing(object sender, EventArgs e)
+        {
+            Disconnetti();
         }
     }
 }

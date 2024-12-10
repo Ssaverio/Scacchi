@@ -1080,7 +1080,8 @@
             this.Controls.Add(this.LTurno);
             this.Controls.Add(this.ChessBoardPanel);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Chess";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Closing);
             this.ChessBoardPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

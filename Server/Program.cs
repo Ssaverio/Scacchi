@@ -83,10 +83,7 @@ namespace Server
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
+                catch (Exception) { }
                 finally
                 {
                     biancoClient.Close();
@@ -104,6 +101,13 @@ namespace Server
             bool mossaValida = Scacchiera.PosizioneValida(mv, turno);
             if (mossaValida)
             {
+                if (Scacchiera.vittoria != -1)
+                {
+                    Console.WriteLine($"Ha vinto: {Scacchiera.vittoria}");
+                    InviaPosizione();
+                    return;
+                }
+
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Mossa valida!");
                 Console.ResetColor();
